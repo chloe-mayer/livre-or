@@ -38,7 +38,6 @@
 }
 
 .rightdiv{
-	z-index: auto;
 }
 
 main {
@@ -326,9 +325,10 @@ main {
 	 margin: 2.5%;
    }
    
+   
 	/*===============================Bouton===================================*/
    
-   .blockbouton{
+	.blockbouton {
    text-align: center;
    
    }
@@ -492,7 +492,7 @@ main {
 	 text-shadow: #470707 1px 1px 2px, 0 0 1em #A91010 , 0 0 0.2em #A91010;
 	 padding-top: 6%;
    }
-   }
+   
    
    #sectionpro{
 	 background-color: rgba(35, 32, 32, 0.25)

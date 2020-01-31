@@ -38,8 +38,16 @@ $connexion = mysqli_connect("localhost", "root", "", "livreor");
                         </li>
 
                         <li class="btn">
-                            <a class="btnch" href="profil.php">Profil</a>
-                        </li>
+                <?php if (isset($_SESSION["loginco"])) { ?>
+                <a class="btnch" href="profil.php">Profil</a>
+              </li>      
+                <?php } ?>
+
+              <?php if (isset($_SESSION["loginco"])) { ?>
+              <li class="btn">
+                <a class="btnch" href="deconnexion.php">Deconnexion</a>
+              </li>             
+              <?php } ?>       
                     </ul>
 
                 </div>
@@ -86,22 +94,8 @@ $connexion = mysqli_connect("localhost", "root", "", "livreor");
         <p> Oh je vois que vous êtes un habitué, parfait ! Entrez donc !</p>
     </div>
 
-    <form method="post">
-        <a class="buttonindex" href="livre-or.php"><input type="submit" value="Livre d'or" name="buttonlivre"></a>
-        <input type="submit" value="deconnexion" name="buttondeco">
-    </form>
-    
-    <?php
-            if (isset($_POST['buttondeco'])) {
-
-
-                session_destroy();
-                header("Location: connexion.php");
-            }
-    ?>
-
     <div class="rightdiv">
-        <img src="images/hellgates.jpg" height=950px>
+        <img src="hellgates.jpg" height=950px>
     </div>
 
 

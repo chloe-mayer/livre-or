@@ -37,8 +37,16 @@
               </li>
 
               <li class="btn">
+                <?php if (isset($_SESSION["loginco"])) { ?>
                 <a class="btnch" href="profil.php">Profil</a>
+              </li>      
+                <?php } ?>
+
+              <?php if (isset($_SESSION["loginco"])) { ?>
+              <li class="btn">
+                <a class="btnch" href="deconnexion.php">Deconnexion</a>
               </li>             
+              <?php } ?>       
             </ul>
 
           </div>
@@ -72,9 +80,10 @@
   if (isset($_POST["bouttonco"])) {
     $request =  "SELECT login, password FROM utilisateurs WHERE login ='" . $_POST["loginco"] . "'";
     $query = mysqli_query($connexion, $request);
-    $result = mysqli_fetch_array($query);
+    $result = mysqli_fetch_assoc($query);
     if (!empty($result)) {
-      if (isset($_POST['passwordco']) == $result['password']) {
+
+      if (password_verify($_POST['passwordco'], $result['password']))  {
         $_SESSION['loginco'] = $_POST['loginco'];
         $_SESSION['passwordco'] = $_POST['passwordco'];
         header("location:connexion.php");

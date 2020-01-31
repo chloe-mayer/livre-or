@@ -76,7 +76,9 @@ if (isset($_POST['confirm_update'])) {
       </div>
     </nav>
   </header>
-
+<?php if (!isset($_SESSION["loginco"])) {
+  header('location:index.php');
+} ?>
   <section>
 
     <div>
@@ -84,7 +86,7 @@ if (isset($_POST['confirm_update'])) {
     </div>
 
     <div class="titre">
-      <h1> PROFIL de <?php echo $_SESSION['login']  ?></h1>
+      <h1> PROFIL de <?php echo $_SESSION["loginco"]  ?></h1>
     </div>
 
     <div>
@@ -107,7 +109,7 @@ if (isset($_POST['confirm_update'])) {
           <div class="infoblock">
 
             <label for="login" class="infopro">Login :</label><br />
-            <input class="inputpro" type="text" name="login" value="<? php/* echo $_SESSION['login'] */ ?>" /> <br /><br />
+            <input class="inputpro" type="text" name="login" placerholder="<?php echo $_SESSION['loginco'] ?>" /> <br /><br />
 
 
             <label for="mdp" class="infopro">Mot de passe :</label><br />
