@@ -1,45 +1,7 @@
 <?php session_start();
 
 $connect = mysqli_connect('localhost', 'root', '', 'livreor');
-$error = '';
-
-
-if (isset($_SESSION['loginco'])) {
-  header('Location: index.php');
-}
-if (isset($_POST['confirm_update'])) {
-  $login = $_POST['login'];
-  $mdp = $_POST['mdp'];
-  $cmdp = $_POST['cmdp'];
-  $query = "SELECT login FROM utilisateurs WHERE login = '$login'";
-  $executequery = mysqli_query($connect, $query);
-  $verify = mysqli_num_rows($executequery);
-
-  if ($verify == 0) {
-
-    if (strlen($mdp) && strlen($cmdp) > 3) {
-
-      if ($mdp == $cmdp) {
-        $mdp = password_hash($mdp, PASSWORD_BCRYPT);
-        $insertmbr = "INSERT INTO utilisateurs(login,password) VALUES('$login','$mdp')";
-        $executequeryall = mysqli_query($connect, $insertmbr);
-        header('Location: connexion.php');
-      } else {
-
-        $error = 'Les mots de passes ne correspondent pas';
-      }
-    } else {
-
-      $error = 'Ton mot de passe est trop court le sang';
-    }
-  } else {
-
-    $error = 'Ce pseudo est déja existant';
-  }
-}
-
-?>
-
+$error = ''; ?>
 <html>
 
 <head>
@@ -89,7 +51,36 @@ if (isset($_POST['confirm_update'])) {
           <input class="inputpro" type="password" name="cmdp" />
 
         </fieldset>
+        <?php
+      if (isset($_POST["confirm_update"])) {
+        $password = $_POST["mdp"];
+        $passwordconfirm = $_POST['cmdp'];
+        $login = htmlspecialchars($_POST["login"]);
+        $request =  "SELECT login FROM utilisateurs WHERE login ='" . $_POST["login"] . "'";
+        $query = mysqli_query($connect, $request);
+        $result = mysqli_fetch_array($query);
 
+        if (!empty($result)) {
+          ?>
+          <p class="infopro"> Ce nom de compte est déjà utilisé</p>
+          <?php
+        } else if ($password != $passwordconfirm) {
+          ?>
+          <p class="infopro"> Les mots de passe ne correspondent pas. </p>
+          <?php
+        } else if (empty($result) && $password == $passwordconfirm) {
+          $pass = password_hash($password, PASSWORD_BCRYPT);
+
+          $request2 = " INSERT INTO `utilisateurs` (`id`, `login`, `password`) VALUES (NULL,'" . $login . "','" . $pass . "')";
+          $query2 = mysqli_query($connect, $request2);
+          ?>
+          <p class="infopro"> compte a bien été crée ! Bienvenue parmis nous ! </p>
+          <?php
+           header ("location:index.php");
+        }
+      }
+
+      ?>
       </article>
 
     </section>
@@ -101,6 +92,7 @@ if (isset($_POST['confirm_update'])) {
         <br /><input class="boutonpro" type="submit" name="confirm_update" value="Allez viens, on est bien.." /></br></br>
 
       </div>
+
 
       <?php echo $error; ?>
 

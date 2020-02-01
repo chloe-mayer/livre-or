@@ -1,6 +1,6 @@
-/*=========================================Accuei=======================================*/
+/*=========================================Accueil=======================================*/
 .accueil {
-    background-color: rgb(90, 47, 47);
+    background-color: #1B1B1B;
     margin:0;
     padding:0;
     overflow-x: hidden;
@@ -38,6 +38,7 @@
 }
 
 .rightdiv{
+	z-index: auto;
 }
 
 main {
@@ -124,9 +125,8 @@ main {
 	color:#0C0313;
 	font-family: 'Underdog', cursive;
 	text-align: center;
-	font-size: 500%;
-	width: 100%;
-	margin-top: 40%;
+	font-size: 400%;
+	margin-left: 4%;
 }
 
 #blocklivre{
@@ -136,7 +136,6 @@ main {
 .section_com{
 	background-image: url(reculesheitan5.jpg);
 	background-size: cover;
-	background-attachment: fixed;
 	box-shadow: inset -1px -7px 77px 96px rgba(38,29,37,1);
 	color:white;
 	font-size: 200%;
@@ -265,6 +264,19 @@ main {
    #comchlo:hover{
 	 border-bottom: 3px solid #862E2E;
    }
+
+	#deco{
+	font-family: 'Underdog', cursive;
+	color: #060606 ;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	margin-right: 90px;
+	}
+
+	#deco:hover {
+	border-bottom: 3px solid #862E2E;
+   }
    
    /*=====================titre====================*/
    
@@ -325,10 +337,9 @@ main {
 	 margin: 2.5%;
    }
    
-   
 	/*===============================Bouton===================================*/
    
-	.blockbouton {
+   .blockbouton{
    text-align: center;
    
    }
@@ -492,7 +503,7 @@ main {
 	 text-shadow: #470707 1px 1px 2px, 0 0 1em #A91010 , 0 0 0.2em #A91010;
 	 padding-top: 6%;
    }
-   
+   }
    
    #sectionpro{
 	 background-color: rgba(35, 32, 32, 0.25)

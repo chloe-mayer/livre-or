@@ -42,12 +42,18 @@ $connexion = mysqli_connect("localhost", "root", "", "livreor");
                 <a class="btnch" href="profil.php">Profil</a>
               </li>      
                 <?php } ?>
+                <?php
+                        if (isset($_SESSION['loginco'])) {
+                        ?>
+                            <li class="btn">
+                                <a id="deco" href="deco.php">Déconnexion</a>
+                            </li>
+                        <?php
+                        }
 
-              <?php if (isset($_SESSION["loginco"])) { ?>
-              <li class="btn">
-                <a class="btnch" href="deconnexion.php">Deconnexion</a>
-              </li>             
-              <?php } ?>       
+                        ?>
+                    </ul>
+    
                     </ul>
 
                 </div>
@@ -90,13 +96,6 @@ $connexion = mysqli_connect("localhost", "root", "", "livreor");
 
 <?php } else if (isset($_SESSION["loginco"])) {
 ?>
-    <div class="homeleftdiv">
-        <p> Oh je vois que vous êtes un habitué, parfait ! Entrez donc !</p>
-    </div>
-
-    <div class="rightdiv">
-        <img src="hellgates.jpg" height=950px>
-    </div>
 
 
 <?php }

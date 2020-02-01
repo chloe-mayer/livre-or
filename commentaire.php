@@ -39,7 +39,18 @@ if (!isset($_SESSION["loginco"])) {
       <li class="btn">
         <a class="btnch" href="profil.php">Profil</a>
       </li>
+      <?php
+                        if (isset($_SESSION['loginco'])) {
+                        ?>
+                            <li class="btn">
+                                <a id="deco" href="deco.php">Déconnexion</a>
+                            </li>
+                        <?php
+                        }
+
+                        ?>
       </ul>
+      
 
       </div>
     </nav>

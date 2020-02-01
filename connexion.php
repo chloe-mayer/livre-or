@@ -41,12 +41,17 @@
                 <a class="btnch" href="profil.php">Profil</a>
               </li>      
                 <?php } ?>
+                <?php
+          if (isset($_SESSION['loginco']))
+          {
+          ?>
+          <li class="btn" >
+            <a id="deco" href="deco.php">Déconnexion</a>
+          </li>
+          <?php
+          }
 
-              <?php if (isset($_SESSION["loginco"])) { ?>
-              <li class="btn">
-                <a class="btnch" href="deconnexion.php">Deconnexion</a>
-              </li>             
-              <?php } ?>       
+          ?>
             </ul>
 
           </div>
@@ -69,8 +74,8 @@
 
       <h1 class="titreconnexion">Connexion</h1>
         <form class="formco" method="post" action="connexion.php">
-          <input class="input_login_connexion" type="text" value="login" name="loginco" required>
-          <input class="input_password_connexion" type="password" value="password" name="passwordco" required>
+          <input class="input_login_connexion" type="text" placeholder="login" name="loginco" required>
+          <input class="input_password_connexion" type="password" placeholder="password" name="passwordco" required>
           <input class="buttonindex" type="submit" value="Connexion" name="bouttonco">
         </form>
 
@@ -78,14 +83,14 @@
   }
 
   if (isset($_POST["bouttonco"])) {
-    $request =  "SELECT login, password FROM utilisateurs WHERE login ='" . $_POST["loginco"] . "'";
+    $request =  "SELECT *, password FROM utilisateurs WHERE login ='" . $_POST["loginco"] . "'";
     $query = mysqli_query($connexion, $request);
     $result = mysqli_fetch_assoc($query);
     if (!empty($result)) {
 
       if (password_verify($_POST['passwordco'], $result['password']))  {
-        $_SESSION['loginco'] = $_POST['loginco'];
-        $_SESSION['passwordco'] = $_POST['passwordco'];
+        $_SESSION['id'] = $result['id'];
+        $_SESSION['loginco'] = $result['login'];
         header("location:connexion.php");
       } else {
     ?>
