@@ -1,6 +1,6 @@
 <?php session_start();
 
-$connect = mysqli_connect('localhost', 'root', '', 'livreor');
+$connexion = mysqli_connect('localhost', 'root', '', 'livreor');
 $error = ''; ?>
 <html>
 
@@ -48,39 +48,9 @@ $error = ''; ?>
           <input class="inputpro" type="password" name="mdp" /><br>
 
           <label for="mdp" class="infopro">Confirmation du mot de passe :</label>
-          <input class="inputpro" type="password" name="cmdp" />
+          <input class="inputpro" type="password" name="cmdp"/>
+         <?php include 'include-php/php-inscription.php' ?>
 
-        </fieldset>
-        <?php
-      if (isset($_POST["confirm_update"])) {
-        $password = $_POST["mdp"];
-        $passwordconfirm = $_POST['cmdp'];
-        $login = htmlspecialchars($_POST["login"]);
-        $request =  "SELECT login FROM utilisateurs WHERE login ='" . $_POST["login"] . "'";
-        $query = mysqli_query($connect, $request);
-        $result = mysqli_fetch_array($query);
-
-        if (!empty($result)) {
-          ?>
-          <p class="infopro"> Ce nom de compte est déjà utilisé</p>
-          <?php
-        } else if ($password != $passwordconfirm) {
-          ?>
-          <p class="infopro"> Les mots de passe ne correspondent pas. </p>
-          <?php
-        } else if (empty($result) && $password == $passwordconfirm) {
-          $pass = password_hash($password, PASSWORD_BCRYPT);
-
-          $request2 = " INSERT INTO `utilisateurs` (`id`, `login`, `password`) VALUES (NULL,'" . $login . "','" . $pass . "')";
-          $query2 = mysqli_query($connect, $request2);
-          ?>
-          <p class="infopro"> compte a bien été crée ! Bienvenue parmis nous ! </p>
-          <?php
-           header ("location:index.php");
-        }
-      }
-
-      ?>
       </article>
 
     </section>

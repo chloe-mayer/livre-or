@@ -65,7 +65,7 @@
   if (isset($_SESSION["loginco"])) #si la personne est déjà connectée cela affiche ce message.
   {
 
-    header("Location: index.php");
+    header("location:index.php");
    
   }
 
@@ -74,36 +74,13 @@
 
       <h1 class="titreconnexion">Connexion</h1>
         <form class="formco" method="post" action="connexion.php">
-          <input class="input_login_connexion" type="text" placeholder="login" name="loginco" required>
+          <input class="input_login_connexion" type="text" placeholder="login" name="login" required>
           <input class="input_password_connexion" type="password" placeholder="password" name="passwordco" required>
           <input class="buttonindex" type="submit" value="Connexion" name="bouttonco">
         </form>
 
     <?php
-  }
-
-  if (isset($_POST["bouttonco"])) {
-    $request =  "SELECT *, password FROM utilisateurs WHERE login ='" . $_POST["loginco"] . "'";
-    $query = mysqli_query($connexion, $request);
-    $result = mysqli_fetch_assoc($query);
-    if (!empty($result)) {
-
-      if (password_verify($_POST['passwordco'], $result['password']))  {
-        $_SESSION['id'] = $result['id'];
-        $_SESSION['loginco'] = $result['login'];
-        header("location:connexion.php");
-      } else {
-    ?>
-        <h1 class="titreconnexion">Ton password n'est pas bon !</h1>
-      <?php
-      }
-    } else {
-      ?>
-      <h1 class="titreconnexion">Ton nom d'utilisateur n'existe pas, peut être n'es tu pas a ta place ici ?</h1>
-  <?php
-      mysqli_close($connexion);
-    }
-  }
+  }include 'include-php/php-connexion.php'
 
   ?>
   <!--<img src="images/reculesheitan.jpg"> !-->

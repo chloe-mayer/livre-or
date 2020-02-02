@@ -50,7 +50,7 @@ $connexion = mysqli_connect("localhost", "root", "", "livreor");
 
               <?php if (isset($_SESSION["loginco"])) { ?>
               <li class="btn">
-                <a class="btnch" href="deconnexion.php">Deconnexion</a>
+                <a class="btnch" href="deco.php">Deconnexion</a>
               </li>             
               <?php } ?>       
         </ul>
