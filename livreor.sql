@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 17 déc. 2019 à 15:51
+-- Généré le :  lun. 03 fév. 2020 à 08:28
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -35,14 +35,7 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
   `id_utilisateur` int(11) NOT NULL,
   `date` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `commentaires`
---
-
-INSERT INTO `commentaires` (`id`, `commentaire`, `id_utilisateur`, `date`) VALUES
-(1, 'Bonjour', "admin", '2019-12-17');
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -56,18 +49,15 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `login` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `utilisateurs`
 --
 
 INSERT INTO `utilisateurs` (`id`, `login`, `password`) VALUES
-(1, 'admin', 'admin'),
-(8, 'Login', '$2y$10$rnJZk8Q2Z17aXLFSldCz8e71lScCfADpiyu5KzeEyfj533u1DAcIC'),
-(5, 'amar', '$2y$10$w535nTuHvYRisv61rpbX8.gLDgbHkOUqQ3FN29i.w18NkyiB4YJTK'),
-(6, 'add', '$2y$10$U6xNH7v.jwqGH33mK9g6ueMGiUc6XMa9mbk7ZlSZHA7vCaXbeD5aC'),
-(7, 'Jean', '$2y$10$y4CyIhnKfdfHR3yiHfyKcu4tDsnPUFM9oH9hjZO5ZCKeXP7.P0WOO');
+(24, 'Baphomet', '$2y$10$bvBc760PPkj9XQ2sj3X6GeGShzYgqMkUbVeXW2WfrrkeCkcXi6nZC'),
+(23, 'kaka', '$2y$10$yg63nCQSsiG1rOjoLNZkd.bAJU2s.oK0RsmQdfYnvgIpnLRVKVfhW');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

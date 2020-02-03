@@ -81,7 +81,9 @@ $connexion = mysqli_connect("localhost", "root", "", "livreor");
           $log = ": " . $result[$i][2];
           echo "<h1> Posté le " . $date . " par " . $log . " :<br></h1>" . $result[$i][0];
           $i = $i + 1;
+
         }
+        
         ?>
       </article>
     </section>

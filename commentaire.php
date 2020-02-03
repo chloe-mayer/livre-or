@@ -10,7 +10,7 @@ if (!isset($_SESSION["loginco"])) {
 
   <meta charset="UTF-8">
   <title>Doléances</title>
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="indexx.css">
   <link href="https://fonts.googleapis.com/css?family=Fondamento&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Underdog&display=swap" rel="stylesheet">
 
