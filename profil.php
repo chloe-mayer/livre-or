@@ -10,7 +10,7 @@ $connexion = mysqli_connect("localhost", "root", "", "livreor");
 
   <meta charset="UTF-8">
   <title>Qui veux tu être succube?</title>
-  <link rel="stylesheet" href="indexx.css">
+  <link rel="stylesheet" href="index.css">
   <link href="https://fonts.googleapis.com/css?family=Fondamento&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Underdog&display=swap" rel="stylesheet">
 
@@ -73,7 +73,7 @@ $connexion = mysqli_connect("localhost", "root", "", "livreor");
     <div class="titre">
       <h1> PROFIL de <?php $logaf = $_SESSION['loginco'];
                       echo "<b>" . "$logaf" . "</b>";
-                      var_dump("$logaf") ?></h1>
+                       ?></h1>
     </div>
 
     <div>

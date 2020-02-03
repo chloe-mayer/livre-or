@@ -10,7 +10,7 @@ if (!isset($_SESSION["loginco"])) {
 
   <meta charset="UTF-8">
   <title>Doléances</title>
-  <link rel="stylesheet" href="indexx.css">
+  <link rel="stylesheet" href="index.css">
   <link href="https://fonts.googleapis.com/css?family=Fondamento&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Underdog&display=swap" rel="stylesheet">
 
@@ -85,7 +85,8 @@ if (!isset($_SESSION["loginco"])) {
         $result = mysqli_fetch_all($query);
         $requete2 = "INSERT INTO `commentaires`(`id`, `commentaire`, `id_utilisateur`, `date`) VALUES (NULL, '" . $message . "', '" . $result[0][0] . "', curdate())";
         $query2 = mysqli_query($connexion, $requete2);
-        echo "votre commentaire à bien été enregistré.";
+        ?>
+        <p class="textcom">"votre commentaire à bien été enregistré."</p> <?php
       }
 
       ?>
