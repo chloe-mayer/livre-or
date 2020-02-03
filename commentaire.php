@@ -47,7 +47,6 @@ if (!isset($_SESSION["loginco"])) {
                             </li>
                         <?php
                         }
-
                         ?>
       </ul>
       
